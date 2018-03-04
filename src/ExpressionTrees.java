@@ -1,28 +1,40 @@
 
-public class ExpressionTrees {
+public class ExpressionTrees implements Expressions {
 
-	TreeNode buildTree(String[] exp) { 
-		
+	
+	public ExpressionTrees() {
+		super();
 	}
 	
-	int evalTree() {
-		
+	
+	public TreeNode buildTree(String[] exp) { 
+		//TODO
+		return null;
 	}
 	
-	String toPrefixNotation() {
-		
+	public int evalTree() {
+		//TODO
+		return -1;
 	}
 	
-	String toInfixNotation() {
-		
+	public String toPrefixNotation() {
+		//TODO
+		return null;
 	}
 	
-	String toPostfixNotation() {
-		
+	public String toInfixNotation() {
+		//TODO	
+		return null;
 	}
 	
-	int postfixEval(String[] exp) {
-		
+	public String toPostfixNotation() {
+		//TODO		
+		return null;
+	}
+	
+	public int postfixEval(String[] exp) {
+		//TODO	
+		return -1;
 	}
 	
 }
