@@ -1,3 +1,4 @@
+import java.util.Stack;
 
 public class ExpressionTrees extends TreeNode implements Expressions {
 
@@ -18,8 +19,39 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 * @param exp
 	 */
 	public TreeNode buildTree(String[] exp) { 
-		//TODO
-		return null;
+
+		TreeNode root = new TreeNode(null);
+		Stack<TreeNode> ops = new Stack<TreeNode>();
+		Stack<TreeNode> nums = new Stack<TreeNode>();
+		for (int i = exp.length - 1; i >= 0; i--) {
+			if (i == exp.length - 1) { 
+				root.setValue(exp[i]);
+				ops.push(root);
+			}
+			else {
+				TreeNode t = new TreeNode(exp[i]);
+				if (isOperator(exp[i])) {
+					if (ops.peek().getLeft() == null) {
+						ops.peek().setLeft(t);
+						ops.push(t);
+					}
+					else {
+						ops.peek().setRight(t);
+						ops.push(t)
+					}
+				else {
+					
+				
+				
+				}
+						
+						
+				}
+					
+			}
+				
+		}
+		return root;
 	}
 	
 	/**
