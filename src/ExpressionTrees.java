@@ -58,7 +58,7 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 					
 			}
 				
-		}
+		
 		return root;
 	}
 	
