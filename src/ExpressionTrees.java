@@ -39,8 +39,16 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 						ops.peek().setRight(t);
 						ops.push(t);
 					}
+				}
 				else {
-					
+					if (ops.peek().getLeft() == null) {
+						ops.peek().setLeft(t);
+						nums.push(t);
+					}
+					else {
+						ops.peek().setRight(t);
+						nums.push(t);
+					}
 				
 				
 				}
