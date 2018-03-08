@@ -10,8 +10,9 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 * constructor
 	 */
 	public ExpressionTrees() {
-		//TODO
+		
 		super(null);
+		
 	}
 	
 	/**
@@ -86,7 +87,7 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	public String toPrefixNotation(TreeNode node) {
 
 		if (isOperator(node.getValue())) {
-			return ((String) node.getValue() + toPrefixNotation(node.getLeft()) + toPrefixNotation(node.getRight()));
+			return ((String) node.getValue() + toPrefixNotation(node.getRight()) + toPrefixNotation(node.getLeft()));
 		}
 		else
 			return (String) node.getValue();
@@ -100,7 +101,7 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	public String toInfixNotation(TreeNode node) {
 		//TODO - no parentheses
 		if (isOperator(node.getValue())) {
-			return (toInfixNotation(node.getLeft()) + (String) node.getValue() + toInfixNotation(node.getRight()));
+			return (toInfixNotation(node.getRight()) + (String) node.getValue() + toInfixNotation(node.getLeft()));
 		}
 		else
 			return (String) node.getValue();
@@ -113,7 +114,7 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	public String toPostfixNotation(TreeNode node) {
 		
 		if (isOperator(node.getValue())) {
-			return (toPostfixNotation(node.getLeft()) +  toPostfixNotation(node.getRight()) + (String) node.getValue() );
+			return (toPostfixNotation(node.getRight()) +  toPostfixNotation(node.getLeft()) + (String) node.getValue() );
 		}
 		else
 			return (String) node.getValue();
