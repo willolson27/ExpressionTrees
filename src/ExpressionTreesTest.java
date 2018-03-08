@@ -10,6 +10,7 @@ public class ExpressionTreesTest {
 	 */
 	public static void main(String[] args) throws IOException {
 		
+		
 		String[] postFix = {"2", "3", "+", "4", "*"};
 		ExpressionTrees e = new ExpressionTrees();
 		TreeNode t = e.buildTree(postFix);
