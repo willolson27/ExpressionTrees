@@ -62,6 +62,7 @@ public class ExpressionTreesTest {
 
 		ExpressionTree tester = new ExpressionTree(arr);
 		
+	
 		toReturn += EVAL + " " + tester.evalTree() + "\n";
 		toReturn += PREFIX + " " + tester.toPrefixNotation() + "\n";
 		toReturn += INFIX + tester.toInfixNotation() + "\n"; 

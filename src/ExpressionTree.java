@@ -133,7 +133,23 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	 * @param exp
 	 */
 	public int postfixEval(String[] exp) {
-		return evalTree(buildTree(exp));
+		
+	
+		Stack<Integer> stk = new Stack<Integer>();
+		for (int i = 0; i < exp.length; i++) {
+			exp[i].trim();
+				if (isOperator(exp[i])) {
+					if (exp[i].equals(PLUS))
+						stk.push(stk.pop() + stk.pop());
+					else if (exp[i].equals(MULT))
+						stk.push(stk.pop() * stk.pop());
+				}
+				else {
+					stk.push(Integer.parseInt(exp[i]));
+				}	
+			
+		}			
+		return stk.pop();
 	}
 	
 	/**
