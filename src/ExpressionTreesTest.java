@@ -15,11 +15,12 @@ public class ExpressionTreesTest {
 	private static final String DEFAULT_INPUT = "postFixExpressions.txt";
 	private static final String PROMPT = "Please input a filename";
 	private static final String ERROR = "File not found";
-	private static final String PREFIX = "Prefix:";
-	private static final String INFIX = "Infix:";
-	private static final String POSTFIX = "Postfix:";
-	private static final String EVAL = "Tree Evaluated:";
-	private static final String PFEVAL = "Postfix Evaluated:";
+	private static final String PREFIX = "Prefix: ";
+	private static final String INFIX = "Infix: ";
+	private static final String POSTFIX = "Postfix: ";
+	private static final String EVAL = "Tree Evaluated: ";
+	private static final String PFEVAL = "Postfix Evaluated: ";
+	private static final String ORIGINAL = "Original Expression: ";
 
 
 	/**
@@ -75,13 +76,17 @@ public class ExpressionTreesTest {
 		//create local variables
 		String toReturn = "";
 		ExpressionTree tester = new ExpressionTree(arr);
+		String og = "";
+		for (String s : arr)
+			og += s + " ";
 		
 		//run various tests on the ExpressionTree
-		toReturn += EVAL + "\t" + tester.evalTree() + "\n";
-		toReturn += PREFIX + "\t" + tester.toPrefixNotation() + "\n";
-		toReturn += INFIX + "\t" + tester.toInfixNotation() + "\n"; 
-		toReturn += POSTFIX + "\t" +tester.toPostfixNotation()+ "\n";
-		toReturn += PFEVAL + "\t" + tester.postfixEval(arr) + "\n\n";
+		toReturn += ORIGINAL + og + "\n";
+		toReturn += EVAL +  tester.evalTree() + "\n";
+		toReturn += PREFIX +  tester.toPrefixNotation() + "\n";
+		toReturn += INFIX + tester.toInfixNotation() + "\n"; 
+		toReturn += POSTFIX + tester.toPostfixNotation()+ "\n";
+		toReturn += PFEVAL + tester.postfixEval(arr) + "\n\n";
 		
 		return toReturn;
 		
