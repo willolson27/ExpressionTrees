@@ -1,9 +1,15 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Will Olson (git: willolson27)
+ * Date Due: March 9, 2018
+ *
+ */
 public class ExpressionTreesTest {
 
+	//create global string constants
 	private static final String DONE = "Done.";
 	private static final String OUTPUT_TXT = "myAnswers.txt";
 	private static final String DEFAULT_INPUT = "postFixExpressions.txt";
@@ -16,10 +22,21 @@ public class ExpressionTreesTest {
 	private static final String PFEVAL = "Postfix Evaluated:";
 
 
+	/**
+	 * Create a an 2D array (array of String[]s, each of which is a postfix expression) from an input file
+	 * @param filename - name of file to be read in
+	 * @return
+	 * @throws IOException
+	 */
 	public static String[][] readFile(String filename) throws IOException {
 		
+		//create local variables
 		String[][] postFix;
-		String[] lines = new String[2];
+		String line;
+		int max = 0;
+		ArrayList<String> lines = new ArrayList<String>();
+		
+		//create an input file with the given filename
 		BufferedReader inputReader = null;
 	    try {
 	    	inputReader = new BufferedReader(new FileReader(filename), 1024);
@@ -29,26 +46,18 @@ public class ExpressionTreesTest {
 	    	System.exit(0);
 	    }
 	    
-	    String line;
-	    int i = 0;
-	    int max = 0;
+	   //read through the file and add each line to an ArrayList
 	    while ((line = inputReader.readLine()) != null) {
-	    	lines[i] = (line.trim());
+	    	lines.add(line.trim());
 	    	if (line.length() > max)
 	    		max = line.length();
-	    	i++;
 	    }
-	    postFix = new String[lines.length][max];
-	    for (int j = 0; j < lines.length; j++) {
-	    	
-	    	String[] arr = lines[j].split("\\s+");
+	    
+	    //add each of the lines to the 2D array of postfix expressions
+	    postFix = new String[lines.size()][max];
+	    for (int j = 0; j < lines.size(); j++) {
+	    	String[] arr = lines.get(j).split("\\s+");
 	    	postFix[j] = arr;
-	    	/*String s = lines[j];
-	    	for (int k = 0; k < s.length(); k++) {
-	    		String temp = "" + s.charAt(k);
-	    		if (temp != null)
-	    			postFix[j][k] = temp;
-	    	} */
 	    }
 	    	
 	    return postFix;
@@ -56,23 +65,33 @@ public class ExpressionTreesTest {
 		
 	}
 	
+	/**
+	 * run various tests on a postfix expression 
+	 * @param arr - postFix expression to be tested
+	 * @return
+	 */
 	public static String runTests(String[] arr) {
 		
+		//create local variables
 		String toReturn = "";
-
 		ExpressionTree tester = new ExpressionTree(arr);
 		
-	
-		toReturn += EVAL + " " + tester.evalTree() + "\n";
-		toReturn += PREFIX + " " + tester.toPrefixNotation() + "\n";
-		toReturn += INFIX + tester.toInfixNotation() + "\n"; 
-		toReturn += POSTFIX + tester.toPostfixNotation()+ "\n";
-		toReturn += PFEVAL + tester.postfixEval(arr) + "\n\n";
+		//run various tests on the ExpressionTree
+		toReturn += EVAL + "\t" + tester.evalTree() + "\n";
+		toReturn += PREFIX + "\t" + tester.toPrefixNotation() + "\n";
+		toReturn += INFIX + "\t" + tester.toInfixNotation() + "\n"; 
+		toReturn += POSTFIX + "\t" +tester.toPostfixNotation()+ "\n";
+		toReturn += PFEVAL + "\t" + tester.postfixEval(arr) + "\n\n";
 		
 		return toReturn;
 		
 	}
 	
+	/**
+	 * writes the results of the tests to the output file
+	 * @param arr - String arraylist of results
+	 * @throws IOException
+	 */
 	public static void writeFile(ArrayList<String> arr) throws IOException {
 		
 		//Create print writer and print results to file
@@ -94,11 +113,16 @@ public class ExpressionTreesTest {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		
-		BufferedReader inputReader = null;
-		Scanner keyboard = new Scanner(System.in);
+		//Create local variables
 		String filename = "";
 		String[][] postFix;
+		ArrayList<String> result = new ArrayList<String>();
+		
+		
+		//create a reader for reading in the input file
+		BufferedReader inputReader = null;
+		Scanner keyboard = new Scanner(System.in);
+		
 		if ((args.length != 0 && args[0] != null) && (new File(args[0]).exists())) {
 			postFix = readFile(args[0]);
 		}
@@ -110,7 +134,7 @@ public class ExpressionTreesTest {
 		}
 		
 	
-		ArrayList<String> result = new ArrayList<String>();
+		//traverse the array of postfix expressions run tests on them
 		for (String[] s : postFix) {	
 			for (String c : s)
 				System.out.print(c + " ");
@@ -118,6 +142,7 @@ public class ExpressionTreesTest {
 			result.add(runTests(s));
 		}
 				
+		//print the results of the tests
 		writeFile(result);
 		
 		
