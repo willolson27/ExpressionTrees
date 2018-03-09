@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class ExpressionTrees extends TreeNode implements Expressions {
+public class ExpressionTree extends TreeNode implements Expressions {
 
 	private final String PLUS = "+";
 	private final String MULT = "*";
@@ -9,9 +9,22 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	/**
 	 * constructor
 	 */
-	public ExpressionTrees() {
+	public ExpressionTree() {
 		
 		super(null);
+		
+	}
+	
+	/**
+	 * constructor
+	 */
+	public ExpressionTree(Object initValue) {
+		
+		super(initValue);
+		TreeNode t = buildTree((String[]) initValue);
+		this.setValue(t.getValue());
+		this.setLeft(t.getLeft());
+		this.setRight(t.getRight());
 		
 	}
 	
@@ -21,46 +34,33 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 */
 	public TreeNode buildTree(String[] exp) { 
 
+		
+		
 		TreeNode root = new TreeNode(null);
-		Stack<TreeNode> ops = new Stack<TreeNode>();
-		Stack<TreeNode> nums = new Stack<TreeNode>();
-		for (int i = exp.length - 1; i >= 0; i--) {
-			if (i == exp.length - 1) { 
+		Stack<TreeNode> stk = new Stack<TreeNode>();
+
+		for (int i = 0; i < exp.length; i++) {
+			if (i == exp.length - 1)  {
 				root.setValue(exp[i]);
-				ops.push(root);
+				root.setRight(stk.pop());
+				root.setLeft(stk.pop());
 			}
 			else {
 				TreeNode t = new TreeNode(exp[i]);
 				if (isOperator(exp[i])) {
-					if (ops.peek().getLeft() == null) {
-						ops.peek().setLeft(t);
-						ops.push(t);
-					}
-					else {
-						ops.peek().setRight(t);
-						ops.push(t);
-					}
+					t.setRight(stk.pop());
+					t.setLeft(stk.pop());
+					stk.push(t);
 				}
 				else {
-					if (ops.peek().getLeft() == null) {
-						ops.peek().setLeft(t);
-						nums.push(t);
-					}
-					else {
-						ops.peek().setRight(t);
-						nums.push(t);
-					}
-				
-				
-				}
-						
-						
-				}
-					
-			}
+					stk.push(t);
+				}			
+			}			
+		}
 				
 		
-		return root;
+		return root; 
+		
 	}
 	
 	/**
@@ -85,9 +85,11 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 * @param node - root node of the tree being evaluated
 	 */
 	public String toPrefixNotation(TreeNode node) {
-
+		
+		if (node == null)
+			return "n";
 		if (isOperator(node.getValue())) {
-			return ((String) node.getValue() + toPrefixNotation(node.getRight()) + toPrefixNotation(node.getLeft()));
+			return (node.getValue().toString() + " " + toPrefixNotation(node.getRight()) +  " " +  toPrefixNotation(node.getLeft()) + " ");
 		}
 		else
 			return (String) node.getValue();
@@ -100,11 +102,14 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 */
 	public String toInfixNotation(TreeNode node) {
 		//TODO - no parentheses
+		if (node == null)
+			return "n";
 		if (isOperator(node.getValue())) {
-			return (toInfixNotation(node.getRight()) + (String) node.getValue() + toInfixNotation(node.getLeft()));
+			return ("(" + toInfixNotation(node.getLeft()) +  " " + node.getValue().toString() + " " + toInfixNotation(node.getRight()) + " )"   );
 		}
 		else
 			return (String) node.getValue();
+
 	}
 	
 	/**
@@ -113,8 +118,10 @@ public class ExpressionTrees extends TreeNode implements Expressions {
 	 */
 	public String toPostfixNotation(TreeNode node) {
 		
+		if (node == null)
+			return "n";
 		if (isOperator(node.getValue())) {
-			return (toPostfixNotation(node.getRight()) +  toPostfixNotation(node.getLeft()) + (String) node.getValue() );
+			return (toPostfixNotation(node.getLeft()) +  " " + toPostfixNotation(node.getRight()) + " " + node.getValue().toString() + " " );
 		}
 		else
 			return (String) node.getValue();

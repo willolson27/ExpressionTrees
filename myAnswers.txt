@@ -1,0 +1,14 @@
+Tree Evaluated: 20
+Prefix: * 4 + 2 3  
+Infix:((3 + 2 ) * 4 )
+Postfix:3 2 +  4 * 
+Postfix Evaluated:20
+
+
+Tree Evaluated: 701
+Prefix: + 8 * 7 * + 5 6  * 3 + 2 1     
+Infix:(((((1 + 2 ) * 3 ) * (6 + 5 ) ) * 7 ) + 8 )
+Postfix:1 2 +  3 *  6 5 +  *  7 *  8 + 
+Postfix Evaluated:701
+
+
