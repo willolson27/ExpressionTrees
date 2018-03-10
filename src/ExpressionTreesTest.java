@@ -12,7 +12,7 @@ public class ExpressionTreesTest {
 	//create global string constants
 	private static final String DONE = "Done.";
 	private static final String OUTPUT_TXT = "myAnswers.txt";
-	private static final String DEFAULT_INPUT = "postFixExpressions.txt";
+	private static final String DEFAULT_INPUT = "postFixExpressions.txtl";
 	private static final String PROMPT = "Please input a filename";
 	private static final String ERROR = "File not found";
 	private static final String PREFIX = "Prefix: ";
@@ -21,7 +21,8 @@ public class ExpressionTreesTest {
 	private static final String EVAL = "Tree Evaluated: ";
 	private static final String PFEVAL = "Postfix Evaluated: ";
 	private static final String ORIGINAL = "Original Expression: ";
-
+	private static final String HEADER = "Will Olson Expression Trees Results";
+	private static final String PB = "*****************************";
 
 	/**
 	 * Create a an 2D array (array of String[]s, each of which is a postfix expression) from an input file
@@ -101,6 +102,7 @@ public class ExpressionTreesTest {
 		
 		//Create print writer and print results to file
 		PrintWriter out = new PrintWriter(new FileWriter(OUTPUT_TXT));
+		out.println(PB + HEADER + PB);
 		for (String s : arr)
 			out.println(s);
 		
@@ -125,7 +127,6 @@ public class ExpressionTreesTest {
 		
 		
 		//create a reader for reading in the input file
-		BufferedReader inputReader = null;
 		Scanner keyboard = new Scanner(System.in);
 		
 		if ((args.length != 0 && args[0] != null) && (new File(args[0]).exists())) {
@@ -137,13 +138,12 @@ public class ExpressionTreesTest {
 			System.out.println(PROMPT);
 			postFix = readFile(keyboard.nextLine());
 		}
-		
+		keyboard.close();
 	
 		//traverse the array of postfix expressions run tests on them
 		for (String[] s : postFix) {	
-			for (String c : s)
-				System.out.print(c + " ");
-			System.out.println();
+		/*	for (String c : s)
+				System.out.print(c + " "); */
 			result.add(runTests(s));
 		}
 				

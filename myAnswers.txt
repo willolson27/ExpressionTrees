@@ -1,72 +1,265 @@
-Original Expression: 3 2 + 4 * 
-Tree Evaluated: 20
-Prefix: * 4 + 2 3
-Infix: ((3 + 2) * 4)
-Postfix: 3 2 + 4 *
-Postfix Evaluated: 20
+*****************************Will Olson Expression Trees Results*****************************
+Original Expression: 8 4 + 
+Tree Evaluated: 12
+Prefix: + 4 8
+Infix: 8 + 4
+Postfix: 8 4 +
+Postfix Evaluated: 12
 
 
-Original Expression: 1 2 + 3 * 6 5 + * 7 * 8 + 
-Tree Evaluated: 701
-Prefix: + 8 * 7 * + 5 6 * 3 + 2 1
-Infix: (((((1 + 2) * 3) * (6 + 5)) * 7) + 8)
-Postfix: 1 2 + 3 * 6 5 + * 7 * 8 +
-Postfix Evaluated: 701
+Original Expression: 8 6 * 
+Tree Evaluated: 48
+Prefix: * 6 8
+Infix: 8 * 6
+Postfix: 8 6 *
+Postfix Evaluated: 48
 
 
-Original Expression: 54 34 * 12 + 
-Tree Evaluated: 1848
-Prefix: + 12 * 34 54
-Infix: ((54 * 34) + 12)
-Postfix: 54 34 * 12 +
-Postfix Evaluated: 1848
+Original Expression: 8 4 6 * + 
+Tree Evaluated: 32
+Prefix: + * 6 4 8
+Infix: 8 + (4 * 6)
+Postfix: 8 4 6 * +
+Postfix Evaluated: 32
 
 
-Original Expression: 123 7 * 1 2 + * 
-Tree Evaluated: 2583
-Prefix: * + 2 1 * 7 123
-Infix: ((123 * 7) * (1 + 2))
-Postfix: 123 7 * 1 2 + *
-Postfix Evaluated: 2583
+Original Expression: 8 4 * 6 + 
+Tree Evaluated: 38
+Prefix: + 6 * 4 8
+Infix: (8 * 4) + 6
+Postfix: 8 4 * 6 +
+Postfix Evaluated: 38
 
 
-Original Expression: 43 98 + 23 * 95 67 + 45 * 65 + 12345 * + 
-Tree Evaluated: 90800718
-Prefix: + * 12345 + 65 * 45 + 67 95 * 23 + 98 43
-Infix: (((43 + 98) * 23) + ((((95 + 67) * 45) + 65) * 12345))
-Postfix: 43 98 + 23 * 95 67 + 45 * 65 + 12345 * +
-Postfix Evaluated: 90800718
+Original Expression: 8 4 6 7 * + * 
+Tree Evaluated: 368
+Prefix: * + * 7 6 4 8
+Infix: 8 * (4 + (6 * 7))
+Postfix: 8 4 6 7 * + *
+Postfix Evaluated: 368
 
 
-Original Expression: 0 9 * 3 + 
-Tree Evaluated: 3
-Prefix: + 3 * 9 0
-Infix: ((0 * 9) + 3)
-Postfix: 0 9 * 3 +
-Postfix Evaluated: 3
+Original Expression: 8 4 6 * 7 + * 
+Tree Evaluated: 248
+Prefix: * + 7 * 6 4 8
+Infix: 8 * ((4 * 6) + 7)
+Postfix: 8 4 6 * 7 + *
+Postfix Evaluated: 248
 
 
-Original Expression: 123 456 * 789 + 
-Tree Evaluated: 56877
-Prefix: + 789 * 456 123
-Infix: ((123 * 456) + 789)
-Postfix: 123 456 * 789 +
-Postfix Evaluated: 56877
+Original Expression: 8 4 6 * + 7 * 
+Tree Evaluated: 224
+Prefix: * 7 + * 6 4 8
+Infix: (8 + (4 * 6)) * 7
+Postfix: 8 4 6 * + 7 *
+Postfix Evaluated: 224
 
 
-Original Expression: 11 22 * 33 + 44 55 * + 66 77 + 88 99 * 1 + 3 5 * 2 4 * * + * + 
-Tree Evaluated: 1265814
-Prefix: + * + * * 4 2 * 5 3 + 1 * 99 88 + 77 66 + * 55 44 + 33 * 22 11
-Infix: ((((11 * 22) + 33) + (44 * 55)) + ((66 + 77) * (((88 * 99) + 1) + ((3 * 5) * (2 * 4)))))
-Postfix: 11 22 * 33 + 44 55 * + 66 77 + 88 99 * 1 + 3 5 * 2 4 * * + * +
-Postfix Evaluated: 1265814
+Original Expression: 8 4 * 6 7 + * 
+Tree Evaluated: 416
+Prefix: * + 7 6 * 4 8
+Infix: (8 * 4) * (6 + 7)
+Postfix: 8 4 * 6 7 + *
+Postfix Evaluated: 416
 
 
-Original Expression: 1 2 + 3 * 4 5 * 6 + * 7 8 + 9 10 * * + 11 12 + 13 14 * + * 15 16 * * 
-Tree Evaluated: 77932800
-Prefix: * * 16 15 * + * 14 13 + 12 11 + * * 10 9 + 8 7 * + 6 * 5 4 * 3 + 2 1
-Infix: ((((((1 + 2) * 3) * ((4 * 5) + 6)) + ((7 + 8) * (9 * 10))) * ((11 + 12) + (13 * 14))) * (15 * 16))
-Postfix: 1 2 + 3 * 4 5 * 6 + * 7 8 + 9 10 * * + 11 12 + 13 14 * + * 15 16 * *
-Postfix Evaluated: 77932800
+Original Expression: 8 4 * 6 + 7 * 
+Tree Evaluated: 266
+Prefix: * 7 + 6 * 4 8
+Infix: ((8 * 4) + 6) * 7
+Postfix: 8 4 * 6 + 7 *
+Postfix Evaluated: 266
+
+
+Original Expression: 8 4 6 7 3 * + * + 
+Tree Evaluated: 116
+Prefix: + * + * 3 7 6 4 8
+Infix: 8 + (4 * (6 + (7 * 3)))
+Postfix: 8 4 6 7 3 * + * +
+Postfix Evaluated: 116
+
+
+Original Expression: 8 4 6 7 * 3 + * + 
+Tree Evaluated: 188
+Prefix: + * + 3 * 7 6 4 8
+Infix: 8 + (4 * ((6 * 7) + 3))
+Postfix: 8 4 6 7 * 3 + * +
+Postfix Evaluated: 188
+
+
+Original Expression: 8 4 6 7 * + 3 * + 
+Tree Evaluated: 146
+Prefix: + * 3 + * 7 6 4 8
+Infix: 8 + ((4 + (6 * 7)) * 3)
+Postfix: 8 4 6 7 * + 3 * +
+Postfix Evaluated: 146
+
+
+Original Expression: 8 4 6 7 * + * 3 + 
+Tree Evaluated: 371
+Prefix: + 3 * + * 7 6 4 8
+Infix: (8 * (4 + (6 * 7))) + 3
+Postfix: 8 4 6 7 * + * 3 +
+Postfix Evaluated: 371
+
+
+Original Expression: 8 4 6 * 7 3 + * + 
+Tree Evaluated: 248
+Prefix: + * + 3 7 * 6 4 8
+Infix: 8 + ((4 * 6) * (7 + 3))
+Postfix: 8 4 6 * 7 3 + * +
+Postfix Evaluated: 248
+
+
+Original Expression: 8 4 6 * 7 + 3 * + 
+Tree Evaluated: 101
+Prefix: + * 3 + 7 * 6 4 8
+Infix: 8 + (((4 * 6) + 7) * 3)
+Postfix: 8 4 6 * 7 + 3 * +
+Postfix Evaluated: 101
+
+
+Original Expression: 8 4 6 * 7 + * 3 + 
+Tree Evaluated: 251
+Prefix: + 3 * + 7 * 6 4 8
+Infix: (8 * ((4 * 6) + 7)) + 3
+Postfix: 8 4 6 * 7 + * 3 +
+Postfix Evaluated: 251
+
+
+Original Expression: 8 4 6 * + 7 3 * + 
+Tree Evaluated: 53
+Prefix: + * 3 7 + * 6 4 8
+Infix: (8 + (4 * 6)) + (7 * 3)
+Postfix: 8 4 6 * + 7 3 * +
+Postfix Evaluated: 53
+
+
+Original Expression: 8 4 6 * + 7 * 3 + 
+Tree Evaluated: 227
+Prefix: + 3 * 7 + * 6 4 8
+Infix: ((8 + (4 * 6)) * 7) + 3
+Postfix: 8 4 6 * + 7 * 3 +
+Postfix Evaluated: 227
+
+
+Original Expression: 8 4 * 6 7 3 + * + 
+Tree Evaluated: 92
+Prefix: + * + 3 7 6 * 4 8
+Infix: (8 * 4) + (6 * (7 + 3))
+Postfix: 8 4 * 6 7 3 + * +
+Postfix Evaluated: 92
+
+
+Original Expression: 8 4 * 6 7 + 3 * + 
+Tree Evaluated: 71
+Prefix: + * 3 + 7 6 * 4 8
+Infix: (8 * 4) + ((6 + 7) * 3)
+Postfix: 8 4 * 6 7 + 3 * +
+Postfix Evaluated: 71
+
+
+Original Expression: 8 4 * 6 7 + * 3 + 
+Tree Evaluated: 419
+Prefix: + 3 * + 7 6 * 4 8
+Infix: ((8 * 4) * (6 + 7)) + 3
+Postfix: 8 4 * 6 7 + * 3 +
+Postfix Evaluated: 419
+
+
+Original Expression: 8 4 * 6 + 7 3 * + 
+Tree Evaluated: 59
+Prefix: + * 3 7 + 6 * 4 8
+Infix: ((8 * 4) + 6) + (7 * 3)
+Postfix: 8 4 * 6 + 7 3 * +
+Postfix Evaluated: 59
+
+
+Original Expression: 8 4 * 6 + 7 * 3 + 
+Tree Evaluated: 269
+Prefix: + 3 * 7 + 6 * 4 8
+Infix: (((8 * 4) + 6) * 7) + 3
+Postfix: 8 4 * 6 + 7 * 3 +
+Postfix Evaluated: 269
+
+
+Original Expression: 8 4 * 6 7 3 + * + 
+Tree Evaluated: 92
+Prefix: + * + 3 7 6 * 4 8
+Infix: (8 * 4) + (6 * (7 + 3))
+Postfix: 8 4 * 6 7 3 + * +
+Postfix Evaluated: 92
+
+
+Original Expression: 8 4 * 6 7 + 3 * + 
+Tree Evaluated: 71
+Prefix: + * 3 + 7 6 * 4 8
+Infix: (8 * 4) + ((6 + 7) * 3)
+Postfix: 8 4 * 6 7 + 3 * +
+Postfix Evaluated: 71
+
+
+Original Expression: 8 4 * 6 7 + * 3 + 
+Tree Evaluated: 419
+Prefix: + 3 * + 7 6 * 4 8
+Infix: ((8 * 4) * (6 + 7)) + 3
+Postfix: 8 4 * 6 7 + * 3 +
+Postfix Evaluated: 419
+
+
+Original Expression: 8 4 6 7 3 2 * + * + + 
+Tree Evaluated: 90
+Prefix: + + * + * 2 3 7 6 4 8
+Infix: 8 + (4 + (6 * (7 + (3 * 2))))
+Postfix: 8 4 6 7 3 2 * + * + +
+Postfix Evaluated: 90
+
+
+Original Expression: 8 4 6 7 * 3 + * + 2 + 
+Tree Evaluated: 190
+Prefix: + 2 + * + 3 * 7 6 4 8
+Infix: (8 + (4 * ((6 * 7) + 3))) + 2
+Postfix: 8 4 6 7 * 3 + * + 2 +
+Postfix Evaluated: 190
+
+
+Original Expression: 8 4 6 7 * + 3 2 * + + 
+Tree Evaluated: 60
+Prefix: + + * 2 3 + * 7 6 4 8
+Infix: 8 + ((4 + (6 * 7)) + (3 * 2))
+Postfix: 8 4 6 7 * + 3 2 * + +
+Postfix Evaluated: 60
+
+
+Original Expression: 8 4 6 7 * + * 3 2 + + 
+Tree Evaluated: 373
+Prefix: + + 2 3 * + * 7 6 4 8
+Infix: (8 * (4 + (6 * 7))) + (3 + 2)
+Postfix: 8 4 6 7 * + * 3 2 + +
+Postfix Evaluated: 373
+
+
+Original Expression: 8 4 6 7 * + * 3 + 2 + 
+Tree Evaluated: 373
+Prefix: + 2 + 3 * + * 7 6 4 8
+Infix: ((8 * (4 + (6 * 7))) + 3) + 2
+Postfix: 8 4 6 7 * + * 3 + 2 +
+Postfix Evaluated: 373
+
+
+Original Expression: 8 4 6 7 * + 3 * 2 + + 
+Tree Evaluated: 148
+Prefix: + + 2 * 3 + * 7 6 4 8
+Infix: 8 + (((4 + (6 * 7)) * 3) + 2)
+Postfix: 8 4 6 7 * + 3 * 2 + +
+Postfix Evaluated: 148
+
+
+Original Expression: 8 4 6 7 * + 3 * + 2 + 
+Tree Evaluated: 148
+Prefix: + 2 + * 3 + * 7 6 4 8
+Infix: (8 + ((4 + (6 * 7)) * 3)) + 2
+Postfix: 8 4 6 7 * + 3 * + 2 +
+Postfix Evaluated: 148
 
 

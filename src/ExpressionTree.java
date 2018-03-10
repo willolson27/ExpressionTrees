@@ -23,6 +23,7 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	
 	/**
 	 * constructor that uses buildTree and has an initial value
+	 * @param initValue - initial value that is set to the root of the tree
 	 * @return the new ExpressionTree
 	 */
 	public ExpressionTree(Object initValue) {
@@ -77,6 +78,7 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	
 	/**
 	 * evaluates the result of an expression tree with recursion
+	 * @param node - root node of tree or subtree to be evaluated
 	 * @return result of a given expression tree
 	 */
 	public int evalTree(TreeNode node) {
@@ -98,7 +100,7 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	
 	/**
 	 * converts a tree to prefix notation
-	 * @param node - root node of the tree being evaluated
+	 * @param node - root node of the tree being converted
 	 * @return conversion of this tree to prefix notation
 	 */
 	public String toPrefixNotation(TreeNode node) {
@@ -118,7 +120,7 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	
 	/**
 	 * converts a tree to infix notation
-	 * @param node - root node of the tree being evaluated
+	 * @param node - root node of the tree being converted
 	 * @return conversion of this tree to infix notation
 	 */
 	public String toInfixNotation(TreeNode node) {
@@ -138,7 +140,7 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	
 	/**
 	 * converts a tree to postfix notation
-	 * @param node - root node of the tree being evaluated
+	 * @param node - root node of the tree being converted
 	 * @return conversion of this tree to postfix notation
 	 */
 	public String toPostfixNotation(TreeNode node) {
@@ -217,7 +219,8 @@ public class ExpressionTree extends TreeNode implements Expressions {
 	 */
 	@Override
 	public String toInfixNotation() {
-		return toInfixNotation(this);
+		String toReturn = toInfixNotation(this);
+		return toReturn.substring(1, toReturn.length() - 1);
 	}
 
 	/**
